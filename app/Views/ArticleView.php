@@ -17,6 +17,7 @@ class ArticleView
     {
         return include_once TEMPLATE_DIR.'/index.html';
     }
+
     public function renderArticlePage($articles)
     {
         $html='';

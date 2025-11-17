@@ -41,6 +41,7 @@ $response = $router->dispatch($request);
 
 $uri = $_SERVER['REQUEST_URI'];
 
+
 switch ($uri) {
     case '/':
         $articles->homePage();

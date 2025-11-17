@@ -8,12 +8,26 @@ class FileManager
      * @var string
      */
     private $contentDir;
+    private $contentFile;
 
     public function __construct($contentDir  = CONTENT_PATH)
     {
         // Приводим путь к абсолютному и убираем лишние слэши
         $this->contentDir = rtrim(realpath($contentDir), '/');
+        $this->contentFile = rtrim(realpath($contentFile), '/');
 
+    }
+
+    /**
+     * Чтение файла
+     */
+    public function readFile(string $relativePath): string|false
+    {
+        $fullDir = $this->contentFile . '/' . ltrim($dir, '/');
+
+        if (!$this->isPathSafe($fullPath)) return false;
+        if (!file_exists($fullPath) || !is_file($fullPath)) return false;
+        return file_get_contents($fullPath);
     }
 
     /**
@@ -38,6 +52,8 @@ class FileManager
         if (!is_dir($fullDir)) return [];
         return array_filter(glob($fullDir . '/*'), 'is_dir');
     }
+
+
 
 
 
