@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\Article;
 use App\Views\ArticleView;
-use App\Core\FileManager;
 
 class ArticleController
 {
@@ -20,19 +19,19 @@ class ArticleController
 
 
     }
-    public function getAllTegs()
+    public function getAllTegs(): void
     {
        $tags = $this->model->allTegs();
        echo $this->view->renderTegsList($tags);
 
     }
 
-    public function homePage()
+    public function homePage(): void
     {
         echo $this->view->renderHomePage();
     }
 
-    public function articlePage()
+    public function articlePage(): void
     {
         $articles = $this->model->allArticles();
         $this->view->renderArticlePage($articles);

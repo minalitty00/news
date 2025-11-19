@@ -31,13 +31,12 @@ $router->map('GET', '/', function (ServerRequestInterface $request): ResponseInt
 });
 
 $router->get('/', 'Acme\Controller::getMethod');
-
-
-
 $response = $router->dispatch($request);
-
 // send the response to the browser
 (new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);
+
+
+
 
 $uri = $_SERVER['REQUEST_URI'];
 
