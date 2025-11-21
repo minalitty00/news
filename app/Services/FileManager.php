@@ -18,6 +18,7 @@ class FileManager
 
     }
 
+
     public function writeFile(string $filePath, string $content): bool
     {
         $dir = dirname($filePath);

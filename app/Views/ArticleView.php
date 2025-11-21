@@ -13,6 +13,8 @@ class ArticleView
 
 
 
+
+
     public function renderTegsList($tags)
     {
         $html ='<ul>';

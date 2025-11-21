@@ -15,10 +15,9 @@ class ArticleController
         $this->model = new Article();
         $this->view = new ArticleView();
         $this->contentDir = __DIR__ . "/../../../public/content";
-
-
-
     }
+
+
     public function getAllTegs(): void
     {
        $tags = $this->model->allTegs();
