@@ -25,6 +25,7 @@ class ArticleController
 
     }
 
+
     public function homePage(): void
     {
         echo $this->view->renderHomePage();

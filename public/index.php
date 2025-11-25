@@ -17,22 +17,20 @@ $whoops->register();
 $h = new Helper();
 $articles = new ArticleController();
 
+require_once '../config/settings.php';
+$router = require (ROOT_PATH.'/app/bootstrap.php');
+
 $request = Laminas\Diactoros\ServerRequestFactory::fromGlobals(
     $_SERVER, $_GET, $_POST, $_COOKIE, $_FILES
 );
 
-$router = new League\Route\Router;
+
 
 // map a route
-$router->map('GET', '/', function (ServerRequestInterface $request): ResponseInterface {
-    $response = new Laminas\Diactoros\Response;
-    $response->getBody()->write('<h1>Hello, World!</h1>');
-    return $response;
-});
+$$router->map('GET', '/', 'App\Controllers\FrontController::index');
+$router->get('/post/{id}', 'App\Controllers\FrontController::show');
 
-$router->get('/', 'Acme\Controller::getMethod');
 $response = $router->dispatch($request);
-// send the response to the browser
 (new Laminas\HttpHandlerRunner\Emitter\SapiEmitter)->emit($response);
 
 

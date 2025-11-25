@@ -12,12 +12,11 @@ class AdminController
     private mixed $adminView;
     public function __construct(PostRepositoryInterface $postRepository, mixed $adminView)
     {
-        $this->postRepository = $repository;
+
         $this->adminView = $adminView;
     }
 
-$html = $this->adminView->showDashboard();
-return $this->responseWrapper($html);
+
 
 
 

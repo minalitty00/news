@@ -12,10 +12,7 @@ class ArticleView
     }
 
 
-
-
-
-    public function renderTegsList($tags)
+    public function renderTegsList($tags): string
     {
         $html ='<ul>';
         foreach ($tags as $tag) {
@@ -24,12 +21,12 @@ class ArticleView
         $html .='</ul>';
         return $html;
     }
-    public function renderHomePage()
+    public function renderHomePage(): string
     {
         return include_once TEMPLATE_DIR.'/index.html';
     }
 
-    public function renderArticlePage($articles)
+    public function renderArticlePage($articles): string
     {
         $html='';
         foreach ($articles as $article) {
