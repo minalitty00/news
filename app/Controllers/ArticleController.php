@@ -24,6 +24,9 @@ class ArticleController
        echo $this->view->renderTegsList($tags);
 
     }
+    /*
+     *
+     */
 
 
     public function homePage(): void
