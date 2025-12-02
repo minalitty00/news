@@ -4,7 +4,7 @@ namespace App\Models;
 
 class  Article
 {
-    public function allTegs()
+    public function allTags()
     {
         return [
             'travel',

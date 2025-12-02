@@ -13,21 +13,16 @@ class ArticleController
     public function __construct()
     {
         $this->model = new Article();
-        $this->view = new ArticleView();
         $this->contentDir = __DIR__ . "/../../../public/content";
     }
 
 
-    public function getAllTegs(): void
+    public function getAllTags(): void
     {
-       $tags = $this->model->allTegs();
-       echo $this->view->renderTegsList($tags);
+       $tags = $this->model->allTags();
+       echo $this->view->renderTagsList($tags);
 
     }
-    /*
-     *
-     */
-
 
     public function homePage(): void
     {

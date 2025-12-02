@@ -6,25 +6,31 @@ use Twig\Environment;
 class ArticleView
 {
     public Environment $twig;
-    public function __construct(Environment $twig)
+    public function __construct(Environment $twig )
     {
         $this->twig = $twig;
     }
 
-
-    public function renderTegsList($tags): string
+    public function renderTagsList($tags): string
     {
-        $html ='<ul>';
+        return $this->twig->render("articles/tags.html.twig", ['tags' => $tags]);
+
+        /**$html ='<ul>';
         foreach ($tags as $tag) {
             $html .='<li>'.$tag.'</li>';
         }
         $html .='</ul>';
-        return $html;
+        return $html;**/
     }
-    public function renderHomePage(): string
+    public function renderHomePage($posts): string
     {
-        return include_once TEMPLATE_DIR.'/index.html';
+        return $this->twig->render('home-page.twig', ['posts' => $posts,'title' => "Home"]);
+
+        /**return include_once TEMPLATE_DIR.'/index.html;**/
     }
+
+
+
 
     public function renderArticlePage($articles): string
     {
