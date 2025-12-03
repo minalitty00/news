@@ -1,0 +1,7 @@
+{%  extends '/front/layout.html.twig' %}
+
+{% block content %}
+    {% for post in posts %}
+        {% include '/front/blocks/article-list-card.html.twig' %}
+    {%  endfor %}
+{% endblock %}

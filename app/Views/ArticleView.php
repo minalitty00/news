@@ -24,7 +24,7 @@ class ArticleView
     }
     public function renderHomePage($posts): string
     {
-        return $this->twig->render('home-page.twig', ['posts' => $posts,'title' => "Home"]);
+        return $this->twig->render('front/pages/home-page.twig', ['posts' => $posts,'title' => "Home"]);
 
         /**return include_once TEMPLATE_DIR.'/index.html;**/
     }
