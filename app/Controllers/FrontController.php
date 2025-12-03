@@ -3,7 +3,6 @@
 namespace App\Controllers;
 use App\Interfaces\PostRepositoryInterface;
 use App\Views\ArticleView;
-use App\Views\FrontView;
 use Laminas\Diactoros\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -12,6 +11,7 @@ class FrontController
 {
     private PostRepositoryInterface $postRepository;
     private ArticleView $front_view;
+
 
     public function __construct( PostRepositoryInterface $repository, ArticleView $frontview)
     {
@@ -35,8 +35,17 @@ class FrontController
         return $this->responseWrapper($html);
     }
 
-    public function show(ServerRequestInterface $request): ResponseInterface
+    public function show(ServerRequestInterface $request,  array $args): ResponseInterface
     {
+
+        $id = (int)$args['id'];
+        $post = $this->postRepository->find($id);
+        if (!$post) {
+            $html = $this->front_view->error404();
+            return $this->responseWrapper($html);
+        }
+        $html = $this->front_view->article($post);
+        return $this->responseWrapper($html);
 
     }
 
